@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - INV</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagen Secreta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Confirmar asistencia</h1>
+        <input type="text" id="codeInput" placeholder="Código Secreto">
+        <button onclick="checkCode()">Enviar</button>
+        <div id="secretContent" class="hidden">
+            <img id="secretImage" src="https://media.discordapp.net/attachments/1091585164490067970/1269407317712044103/5.jpg?ex=66aff330&is=66aea1b0&hm=6113fb4935e980ce93759411fde4978033825486d6f2254284375abfbf5843fc&=&format=webp&width=488&height=676" alt="Imagen Secreta">
+            <div class="button-container">
+                <button onclick="changeImage()">APRETAME</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const secretCodes = ['A1B2C3', 'D4E5F6', 'G7H8I9', 'J0K1L2', 'M3N4O5', 'P6Q7R8'];  // Cambia estos códigos a los que desees
+        const imageLinks = [
+            'https://media.discordapp.net/attachments/1091585164490067970/1269407316252430518/1.jpg?ex=66aff330&is=66aea1b0&hm=a92c5d664802c980a743cbd73d0e60af579a79dd2047bc9a6499e998f91a67c9&=&format=webp&width=488&height=676',
+            'https://media.discordapp.net/attachments/1091585164490067970/1269407316587839509/2.jpg?ex=66aff330&is=66aea1b0&hm=2797ad1cbab768aa9ffa53c0a10486c5c404d540bf9e8cea7761658b05de31cc&=&format=webp&width=488&height=676',
+            'https://media.discordapp.net/attachments/1091585164490067970/1269407316973846578/3.jpg?ex=66aff330&is=66aea1b0&hm=4e2db1cd588691f77d1164d656fbc09cc28b3abd8cbf4b9630724f901be1b99b&=&format=webp&width=488&height=676',
+            'https://media.discordapp.net/attachments/1091585164490067970/1269407317351469086/4.jpg?ex=66aff330&is=66aea1b0&hm=50b740756b6d64506cb90264fe71eab250b11a58814466f1eeeaf9d27e56b4d4&=&format=webp&width=488&height=676',
+            'https://media.discordapp.net/attachments/1091585164490067970/1269407317712044103/5.jpg?ex=66aff330&is=66aea1b0&hm=6113fb4935e980ce93759411fde4978033825486d6f2254284375abfbf5843fc&=&format=webp&width=488&height=676',
+            'https://media.discordapp.net/attachments/1091585164490067970/1269407318127284284/6.jpg?ex=66aff331&is=66aea1b1&hm=241be2cf4d17836e863d17c4f92870a09503bf395cf5065e1a40ccf671b5f5f7&=&format=webp&width=488&height=676'
+        ];
+
+        function checkCode() {
+            const input = document.getElementById('codeInput').value;
+
+            if (secretCodes.includes(input)) {
+                document.getElementById('secretContent').classList.remove('hidden');
+                changeImage();  // Muestra una imagen aleatoria al ingresar el código correctamente
+            } else {
+                alert('Código incorrecto. Intenta de nuevo.');
+            }
+        }
+
+        function changeImage() {
+            const randomIndex = Math.floor(Math.random() * imageLinks.length);
+            document.getElementById('secretImage').src = imageLinks[randomIndex];
+        }
+    </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
